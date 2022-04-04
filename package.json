@@ -1,10 +1,20 @@
 {
   "name": "highlight-react",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Text highlighting component for react applications",
   "homepage": "https://github.com/vladickweb/highlight-react",
   "main": "dist/index.js",
   "license": "MIT",
+  "keywords": [
+    "react",
+    "highlight",
+    "react-highlight",
+    "next",
+    "nextjs",
+    "next.js",
+    "mark",
+    "highlighter"
+  ],
   "scripts": {
     "build": "tsc"
   },
