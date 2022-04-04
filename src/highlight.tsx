@@ -7,7 +7,7 @@ interface IProps {
 
 export default function Highlight({ children, search }: IProps) {
 
-  if (!search) {
+  if (search === '' || !search) {
     return children
   }
 
