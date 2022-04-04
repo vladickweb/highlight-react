@@ -24,6 +24,7 @@ export default function Highlight({ children, search }: IProps) {
 				return children
 			}
 			const markedElementString = children.replace(regex, (match: string) => {
+        if (!match) return match
 				return `<mark>${match}</mark>`
 			})
 
