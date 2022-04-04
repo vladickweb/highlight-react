@@ -2,23 +2,13 @@ import React, { createElement } from 'react'
 
 interface IProps {
   children: any
-  search: string
+  search?: string
 }
 
 export default function Highlight({ children, search }: IProps) {
-  const findSearchInChildren = (
-    children: JSX.Element[] | JSX.Element | string
-  ): boolean => {
-    if (typeof children === 'string') {
-      return children.toLowerCase().indexOf(search.toLowerCase()) > -1
-    }
-    if (Array.isArray(children)) {
-      return children.some(child => findSearchInChildren(child))
-    }
-    if (children.props.children) {
-      return findSearchInChildren(children.props.children)
-    }
-    return false
+
+  if (!search) {
+    return children
   }
 
   const markSearch = (
