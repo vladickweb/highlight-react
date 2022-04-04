@@ -7,10 +7,11 @@ interface IProps {
 
 export default function Highlight({ children, search }: IProps) {
 
+
   if (search === '' || !search) {
     return children
   }
-
+  
   const markSearch = (
     children: any,
     HTMLtype?: any
@@ -19,6 +20,11 @@ export default function Highlight({ children, search }: IProps) {
     const isArray = Array.isArray(children as JSX.Element[])
     const isElement = !isString && !isArray
     const regex = new RegExp(search, 'gi')
+
+
+    if (!search) {
+      return children
+    }
 
     if (isString) {
       const markedElementString = children.replace(regex, (match: string) => {
