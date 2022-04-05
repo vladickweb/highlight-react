@@ -44,25 +44,24 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(require("react"));
 function Highlight(_a) {
     var children = _a.children, search = _a.search;
-    var findSearchInChildren = function (children) {
-        if (typeof children === 'string') {
-            return children.toLowerCase().indexOf(search.toLowerCase()) > -1;
-        }
-        if (Array.isArray(children)) {
-            return children.some(function (child) { return findSearchInChildren(child); });
-        }
-        if (children.props.children) {
-            return findSearchInChildren(children.props.children);
-        }
-        return false;
-    };
+    if (search === '' || !search) {
+        return children;
+    }
     var markSearch = function (children, HTMLtype) {
         var isString = typeof children === 'string';
         var isArray = Array.isArray(children);
         var isElement = !isString && !isArray;
         var regex = new RegExp(search, 'gi');
+        if (!children) {
+            return '';
+        }
         if (isString) {
+            if (!search || search === '') {
+                return children;
+            }
             var markedElementString = children.replace(regex, function (match) {
+                if (!match)
+                    return match;
                 return "<mark>" + match + "</mark>";
             });
             return react_1.createElement(HTMLtype || 'span', {

@@ -1,7 +1,6 @@
-/// <reference types="react" />
 interface IProps {
     children: any;
-    search: string;
+    search?: string;
 }
-export default function Highlight({ children, search }: IProps): JSX.Element;
+export default function Highlight({ children, search }: IProps): any;
 export {};

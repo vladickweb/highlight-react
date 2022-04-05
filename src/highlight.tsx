@@ -11,13 +11,17 @@ export default function Highlight({ children, search }: IProps) {
 	}
 
 	const markSearch = (
-		children: any,
+		children?: any,
 		HTMLtype?: any
 	): JSX.Element[] | JSX.Element | string => {
 		const isString = typeof children === 'string'
 		const isArray = Array.isArray(children as JSX.Element[])
 		const isElement = !isString && !isArray
 		const regex = new RegExp(search, 'gi')
+
+		if (!children) {
+			return ''
+		}
 
 		if (isString) {
 			if (!search || search === '') {
